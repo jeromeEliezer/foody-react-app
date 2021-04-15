@@ -14,15 +14,17 @@ body{
     height:100vh;
     overflow : hidden;
     padding:0;
+    background-color: rgba(0, 0, 0, 0.111);
 }
 header{
     overflow: hidden;
     height : 40vh;
     width:100vw;
-    background-image: url('../src/headerBackground.jpg');
+    background-color: wheat;
     background-size: cover;
     background-position: center ;
     background-repeat: no-repeat;
+    transition : all .1s linear ;
     // position:relative;
 }
 

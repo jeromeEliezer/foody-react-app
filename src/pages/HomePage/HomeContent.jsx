@@ -13,7 +13,6 @@ class HomeContent extends Component {
     loadContent(){
         axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
         .then(response=>{
-            console.log(response)
             const randomMeal = response.data.meals[0];
             this.setState({randomMeal});
         })
@@ -22,12 +21,14 @@ class HomeContent extends Component {
     
     render() {
         return (
+            <div>
                 <figure>
                     <img src={this.state.randomMeal.strMealThumb} alt=""/>
                     <figcaption>
                         <h2>{this.state.randomMeal.strMeal}</h2>
                     </figcaption>
                 </figure>
+            </div>    
         );
     }
 }
