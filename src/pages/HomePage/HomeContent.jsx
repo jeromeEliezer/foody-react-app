@@ -21,14 +21,12 @@ class HomeContent extends Component {
     
     render() {
         return (
-            <div>
-                <figure>
+                <figure className = "middle-content-container">
                     <img src={this.state.randomMeal.strMealThumb} alt=""/>
                     <figcaption>
                         <h2>{this.state.randomMeal.strMeal}</h2>
                     </figcaption>
                 </figure>
-            </div>    
         );
     }
 }

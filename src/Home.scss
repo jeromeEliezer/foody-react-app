@@ -10,17 +10,28 @@ body{
     
 }
 
+*{
+    box-sizing:border-box
+}
+
 .Home-wrapper{
-    height:100vh;
-    overflow : hidden;
-    padding:0;
-    background-color: rgba(0, 0, 0, 0.111);
+    // height:120vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    // padding:0;
+    // background-color: rgba(0, 0, 0, 0.111);
+}
+
+.upper-content-main-wrapper{
+    height : 100%;
 }
 header{
     overflow: hidden;
-    height : 40vh;
+    height : 43vh;
     width:100vw;
-    background-color: wheat;
+    // background-color: wheat;
     background-size: cover;
     background-position: center ;
     background-repeat: no-repeat;
@@ -70,13 +81,14 @@ header{
     }
 }
 
+//middle content
 figure{
    
     padding:0;
     width:99%;
     
-    height : 32.4vh; 
-    margin: 15% 2%;
+    // height : 29.4vh; 
+    margin: 100px 2% 37px 2%;
     display:flex;
     justify-content : center;
     align-items: flex-start;
@@ -103,4 +115,14 @@ figure{
         }
       
     }
+}
+
+//placeholder POstftch au cas où il n'y a pas de match ---> recherche  du user
+i{
+    display: none;
+}
+.fetch-response-container{
+    width:100vw;
+    height:98vh;
+    background : black;
 }
