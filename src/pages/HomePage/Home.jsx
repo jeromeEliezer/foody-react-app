@@ -18,25 +18,23 @@ class Home extends Component{
     }
     setFetch(e){
         this.entry = e.target.value;
-        console.log("entry :"+ this.entry)
-        // if(this.state.entry){
-        // }
     }
-
   
     async fetchEntry() {
+        this.setState({req : !this.state.req})
      await this.setState({valueTofetch  : this.entry})
-     
-     console.log(this.state.valueTofetch)
+     this.entry = "";
     }
 
     render(){
         
         return (
                 <div className = "Home-wrapper">
-                    <Header entry ={this.setFetch} fetchEntry ={this.fetchEntry}/>
-                    <HomeContent/>
-                    <PostFetch entry = {this.state.valueTofetch} isClicked = {this.state.req}/>
+                    <div classeName = "upper-content-main-wrapper">
+                        <Header entry ={this.setFetch} fetchEntry ={this.fetchEntry}/>
+                        <HomeContent/>
+                    </div>
+                    <PostFetch entry = {this.state.valueTofetch} checkRequest = {this.state.req}/>
                     <Footer/>
                 </div>
             )
