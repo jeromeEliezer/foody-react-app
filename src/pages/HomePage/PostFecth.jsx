@@ -16,7 +16,6 @@ class PostFetch extends Component{
             display : "none",
             isDisplayed : false
         }
-        localStorage.setItem("bookmarks","");
     }
 
     async componentDidUpdate(prevProps, prevState){
@@ -70,9 +69,11 @@ class PostFetch extends Component{
         const meal = JSON.stringify({ id: id, img: img, name: name});
 
         const favList = [];
+        
+        if(localStorage.getItems('bookkmarks')){
+            favList.push(localStorage.getItem('bookmarks'));
 
-        favList.push(localStorage.getItem('bookmarks'));
-
+        }
         favList.push(meal+ "  ");
 
         localStorage.setItem('bookmarks',favList);
