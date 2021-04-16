@@ -16,7 +16,7 @@ class PostFetch extends Component{
             display : "none",
             isDisplayed : false
         }
-        localStorage.setItem("bookmarks",{});
+        localStorage.setItem("bookmarks","");
     }
 
     async componentDidUpdate(prevProps, prevState){
