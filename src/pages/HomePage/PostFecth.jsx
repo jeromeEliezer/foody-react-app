@@ -69,8 +69,8 @@ class PostFetch extends Component{
         const meal = JSON.stringify({ id: id, img: img, name: name});
 
         const favList = [];
-        
-        if(localStorage.getItems('bookkmarks')){
+
+        if(localStorage.getItems('bookmarks') !== null){
             favList.push(localStorage.getItem('bookmarks'));
 
         }
