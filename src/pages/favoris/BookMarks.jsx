@@ -68,7 +68,8 @@ render() {
     return(
         <React.Fragment>
             <NavBar backgroundColor="white"/>  
-                <div className="bookmarks-content">                    
+                <div className="bookmarks-content">
+                <h1 style={{color: "white"}}>Favorites</h1>                                        
                     {display (this.state.addFavorite, this.showDetails, this.removeFavorite)}                    
                 </div>    
             <Footer/>   
