@@ -93,9 +93,9 @@ class NavBar extends Component {
         return (
             <nav style={{ ...navStyle, width:this.state.width}}>   
                 <div style={menuBurgerIconStyle} onClick={this.menu_active}>
-                    <span className="menuBurgerIconLines" style={{...MenuBurgerIconLines, backgroundColor: this.props.bgColor}}></span>
-                    <span className="menuBurgerIconLines" style={{...MenuBurgerIconLines, backgroundColor: this.props.bgColor}}></span>
-                    <span className="menuBurgerIconLines" style={{...MenuBurgerIconLines, backgroundColor: this.props.bgColor}}></span>
+                    <span className="menuBurgerIconLines" style={{...MenuBurgerIconLines, backgroundColor: this.props.backgroundColor}}></span>
+                    <span className="menuBurgerIconLines" style={{...MenuBurgerIconLines, backgroundColor: this.props.backgroundColor}}></span>
+                    <span className="menuBurgerIconLines" style={{...MenuBurgerIconLines, backgroundColor: this.props.backgroundColor}}></span>
                 </div>
                 <ul style={menuOptionsListStyle}>
                     <li style={optionStyle}><a style={optionLinkStyle} href="">Home</a></li>
