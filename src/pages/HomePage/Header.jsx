@@ -22,7 +22,7 @@ class Header extends Component {
     constructor({props}){
         super({props});
         this.state = { 
-            image : ""
+            image : headerBackground12 
         }
         
 
@@ -57,13 +57,11 @@ class Header extends Component {
         this.setBackgroundImage_animation();
     }
 
-    
-
     render() {
 
         return (
             <header style={{backgroundImage :`url(${this.state.image})`}}>
-                <NavBar/>
+                <NavBar bgColor ={this.props.menuBurgerBg}/>
                 <div className="searchFields">  
                     <input type="text" onChange = {this.props.entry} placeholder="Search by area, ingredient, meal name, meal category "/>
                     <img src={search} alt="search-icon" onClick={this.props.fetchEntry}/>

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 //nav
 const navStyle = {
-    position : "absolute",
+    position : "fixed",
     overflow:"hidden",
     height : '100vh',
     right:0,
@@ -35,7 +35,7 @@ const menuBurgerIconStyle = {
 const MenuBurgerIconLines = {
     width  :  "100%",
     height : "3px",
-    background : "white"
+    // background : "white"
     
 }
 
@@ -63,9 +63,9 @@ const optionLinkStyle = {
 }
 
 class NavBar extends Component {
-    constructor(){
-        super();
+    constructor(props){
 
+        super(props);
         this.state = {
             active : false,
             width : 0,
@@ -93,9 +93,9 @@ class NavBar extends Component {
         return (
             <nav style={{ ...navStyle, width:this.state.width}}>   
                 <div style={menuBurgerIconStyle} onClick={this.menu_active}>
-                    <span style={MenuBurgerIconLines}></span>
-                    <span style={MenuBurgerIconLines}></span>
-                    <span style={MenuBurgerIconLines}></span>
+                    <span className="menuBurgerIconLines" style={{...MenuBurgerIconLines, backgroundColor: this.props.bgColor}}></span>
+                    <span className="menuBurgerIconLines" style={{...MenuBurgerIconLines, backgroundColor: this.props.bgColor}}></span>
+                    <span className="menuBurgerIconLines" style={{...MenuBurgerIconLines, backgroundColor: this.props.bgColor}}></span>
                 </div>
                 <ul style={menuOptionsListStyle}>
                     <li style={optionStyle}><a style={optionLinkStyle} href="">Home</a></li>
