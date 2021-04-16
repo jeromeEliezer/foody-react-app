@@ -16,7 +16,6 @@ class PostFetch extends Component{
             display : "none",
             isDisplayed : false
         }
-        localStorage.setItem("bookmarks",{});
     }
 
     async componentDidUpdate(prevProps, prevState){
@@ -65,13 +64,21 @@ class PostFetch extends Component{
     addToBookmarks = (e)=>{
         const id   = e.target.getAttribute('data-id');
         const img  = e.target.getAttribute('data-img');
-        const name = e.target.getAttribute('data-name')
+        const name = e.target.getAttribute('data-name');
+
         const meal = JSON.stringify({ id: id, img: img, name: name});
+
         const favList = [];
-        favList.push(localStorage.getItem('bookmarks'));
-        favList.push(meal);
+
+        if(localStorage.getItem('bookmarks') !== null){
+            favList.push(localStorage.getItem('bookmarks'));
+
+        }
+        favList.push(meal+ "  ");
+
         localStorage.setItem('bookmarks',favList);
         e.target.parentElement.nextSibling.nextSibling.style.display = "block"
+
         console.log(localStorage.getItem('bookmarks'))
         
 
