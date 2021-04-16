@@ -6,16 +6,22 @@ import PostFetch from './PostFecth'
 
 class Home extends Component{
  
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             valueTofetch : '',
-            req : false
+            req : false,
+            menuBugerBgcolor: "white"
         }
         this.entry = ""
         this.setFetch = this.setFetch.bind(this);
         this.fetchEntry = this.fetchEntry.bind(this);
+        this.navColorAdapter();
+        console.log(this.props)/////////////////
     }
+
+
+   
     setFetch(e){
         this.entry = e.target.value;
     }
@@ -26,15 +32,23 @@ class Home extends Component{
      this.entry = "";
     }
 
+
+    navColorAdapter = ()=>{
+        window.addEventListener('scroll',()=>{
+
+            console.log("smooth scrolled home.jsx line 34");
+            window.scrollY >= window.innerHeight ? this.setState({menuBugerBgcolor : 'black'}) : this.setState({menuBugerBgcolor : 'white'})
+        })}
+                        
+
     render(){
-        
         return (
                 <div className = "Home-wrapper">
                     <div classeName = "upper-content-main-wrapper">
-                        <Header entry ={this.setFetch} fetchEntry ={this.fetchEntry}/>
+                        <Header entry ={this.setFetch} fetchEntry ={this.fetchEntry} menuBurgerBg = {this.state.menuBugerBgcolor}/>
                         <HomeContent/>
                     </div>
-                    <PostFetch entry = {this.state.valueTofetch} checkRequest = {this.state.req}/>
+                    <PostFetch entry = {this.state.valueTofetch} redirect={this.props.history} checkRequest = {this.state.req}/>
                     <Footer/>
                 </div>
             )
