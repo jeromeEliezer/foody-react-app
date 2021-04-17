@@ -5,7 +5,6 @@ import optionsIcon from '../../options.svg';
 import star from '../../star.svg';
 
 class PostFetch extends Component{
-   
     constructor(props){
 
         super(props);
@@ -55,25 +54,30 @@ class PostFetch extends Component{
          }
     }
 
+    // addTofavorite and show detail options in result views if match
      handleOptions = async(e) =>{
        await this.setState({isDisplayed : ! this.state.isDisplayed});
        this.state.isDisplayed ? this.setState({display: "block"}) : this.setState({display: "none"});
         e.target.nextSibling.style.display = this.state.display;
     }
 
+    // Save favorite in  localStorage
     addToBookmarks = (e)=>{
         const id   = e.target.getAttribute('data-id');
         const img  = e.target.getAttribute('data-img');
         const name = e.target.getAttribute('data-name');
 
+        //We need to make a string from our data before storing in localStorage
         const meal = JSON.stringify({ id: id, img: img, name: name});
 
+        //useful if we need to add element in localStorage ...if localStorage don't exist yet it's created
         const favList = [];
 
-        if(localStorage.getItem('bookmarks') !== null){
+        if(localStorage.getItem('bookmarks') !== null && localStorage.getItem('bookmarks') !== ""){
             favList.push(localStorage.getItem('bookmarks'));
 
         }
+        /// we add to space to split our datas in order to use them in bookmarks section
         favList.push(meal+ "  ");
 
         localStorage.setItem('bookmarks',favList);
@@ -84,6 +88,7 @@ class PostFetch extends Component{
 
     }
 
+    ///show detail button event
     showDetails = (e) =>{
         const id = e.target.getAttribute('data-id');
         this.props.redirect.push(`/details/${id}`);
@@ -94,18 +99,23 @@ class PostFetch extends Component{
     render(){
             switch( true ){
 
+                /// if we found a match so result are shown...
                 case this.state.items.length !== 0 : 
                                             return(
                                                 <div className="fetch-response-container">
                                                     { this.state.items.map(el=>{
                                                         return (
                                                             <div key={ el.idMeal } className='fetch-result-wrapper'>
+                                                                {/* imge option to click ON */}
                                                                 <img style={{cursor: "pointer"}}className="options-icon" src={ optionsIcon } onClick = { this.handleOptions } alt="options-icon"/>
+                                                                {/* options */}
                                                                 <div style= {{display : "none"}} className ='options-params'>
                                                                     <h5 data-id={el.idMeal} data-img ={el.strMealThumb} data-name={el.strMeal} onClick ={this.addToBookmarks}>Add to favorites</h5>
                                                                     <h5 data-id={el.idMeal} data-img ={el.strMealThumb} data-name={el.strMeal} onClick={this.showDetails}>Show details</h5>
                                                                 </div>
+                                                                {/* main image */}
                                                                 <img  className="fetch-image"   src={ el.strMealThumb } alt=""/>
+                                                                {/* star appear if meal is added to favorites */}
                                                                 <img className='favorite' style={ { display:"none" } } src={ star } alt="favorite-icon"/>
 
                                                             </div>
@@ -113,6 +123,7 @@ class PostFetch extends Component{
                                                     })}
                                                </div>)
                 
+                ///
                 default : 
                         return <i></i>
 
