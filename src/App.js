@@ -9,6 +9,7 @@ import './Details.scss';
 
 
 
+
 const App = () => {
     return (
         <div>

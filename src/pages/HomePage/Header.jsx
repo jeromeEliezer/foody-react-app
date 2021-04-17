@@ -62,6 +62,7 @@ class Header extends Component {
         return (
             <header style={{backgroundImage :`url(${this.state.image})`}}>
                 <NavBar bgColor ={this.props.menuBurgerBg}/>
+                <h1>Foody</h1>
                 <div className="searchFields">  
                     <input type="text" onChange = {this.props.entry} placeholder="Search by area, ingredient, meal name, meal category "/>
                     <img src={search} alt="search-icon" onClick={this.props.fetchEntry}/>
