@@ -27,7 +27,7 @@ const menuBurgerIconStyle = {
     position: "fixed",
     top : "5%",
     left : "85%",
-    background : "transparent",
+    // background : "transparent",
     zIndex : 4
 }
 
@@ -35,7 +35,7 @@ const menuBurgerIconStyle = {
 const MenuBurgerIconLines = {
     width  :  "100%",
     height : "3px",
-    // background : "white"
+    background : "white"
     
 }
 

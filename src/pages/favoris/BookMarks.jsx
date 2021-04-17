@@ -1,5 +1,6 @@
 import NavBar from '../../utilsComponents/NavBar';
 import Footer from '../../utilsComponents/Footer';
+import previous from '../../previous.svg'
 import React, { Component } from 'react'
 import { render } from '@testing-library/react';
 import axios from 'axios';
@@ -12,16 +13,29 @@ class Bookmarks extends Component {
         constructor(props) {
             super(props);
                 this.state = {
-                    filter: "",
-                    addFavorite: []
+                    display: "block",
+                    addFavorite: [],
+                    
                 }
-                
+
         }
 
+// PrevIcon dispappear when scrooling down
+isDisplayPrevIcon = (e)=>{    
+    const imageContent = document.querySelector(".image-content")
+    if(e.target.scrollTop > imageContent.scrollTop + imageContent.clientHeight/2 ){
+        this.setState({display: "none"});
+        console.log("Work")
+    }
+    else{
+        this.setState({display: "block"});
+    }
+}
 
 componentDidMount(){
     this.uploadBookmarks();
-    console.log(this.state.addFavorite)
+    // console.log(this.state.addFavorite)
+  
 }
 
 componentWillUnmount(){
@@ -66,14 +80,17 @@ render() {
 
     console.log(this.state.addFavorite)
     return(
-        <React.Fragment>
-            <NavBar backgroundColor="white"/>  
-                <div className="bookmarks-content">
-                    <h1 className="title" style={{color: "white"}}>Favorites</h1>                                                            
+        <div className="bookmark-wrapper">
+            <a href="/">
+                <img style={{display: this.state.display}}className='prev-icon' src={previous} />
+            </a>
+            <NavBar backgroundColor="white"/>                  
+                <div className="bookmarks-content" onScroll={this.isDisplayPrevIcon}>
+                
                     {display (this.state.addFavorite, this.showDetails, this.removeFavorite)}                    
                 </div>    
             <Footer/>   
-        </React.Fragment>      
+        </div>      
         
     )
 }
@@ -95,7 +112,7 @@ function display (arr, showDetails, removeFavorite){
         // console.log("coucou")             
         return (arr.map(el => (
         <figure className="image-content">    
-            <img src={el.img} alt=""/>
+            <img class="image" src={el.img} alt=""/>
             <figcaption>
                 <h2>{el.name}</h2>
             </figcaption>
