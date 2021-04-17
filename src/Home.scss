@@ -69,8 +69,9 @@ header{
     padding:0 !important;
     &>*{
     }
-    input{
-       width : 100%;
+    input[type='text']{
+    //    width : 100%;
+    flex:3;
        height:100%;
        border-radius : 10px;
        border:none;
@@ -94,7 +95,14 @@ header{
         transform: translateX(-50%);
         border-radius : 8px;
         cursor: pointer;
-        opacity : 0.4;
+        opacity : 0.6;
+    }
+    input[type='submit']{
+        position : absolute;
+        height:17px;
+        opacity: 0;
+        left:92%;
+        width : 18px;
     }
 }
 

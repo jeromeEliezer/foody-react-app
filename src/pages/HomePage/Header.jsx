@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import search from '../../search.svg';
 import NavBar from '../../utilsComponents/NavBar';
 
-import headerBackground  from '../../headerBackground.jpg';
 import headerBackground1 from '../../headerBackground1.jpg';
 import headerBackground2 from '../../headerBackground2.jpg';
 import headerBackground3 from '../../headerBackground3.jpg';
@@ -30,7 +29,6 @@ class Header extends Component {
 
     getImages(){
         return[
-            headerBackground,
             headerBackground1,          
             headerBackground2,                   
             headerBackground3,
@@ -63,10 +61,11 @@ class Header extends Component {
             <header style={{backgroundImage :`url(${this.state.image})`}}>
                 <NavBar backgroundColor ={this.props.menuBurgerBg}/>
                 <h1>Foody</h1>
-                <div className="searchFields">  
+                <form className="searchFields" onSubmit= {this.props.fetchEntry}>  
                     <input type="text" onChange = {this.props.entry} placeholder="Search by area, ingredient, meal name, meal category "/>
-                    <img src={search} alt="search-icon" onClick={this.props.fetchEntry}/>
-                </div>
+                    <img src={search} alt="search-icon"/>
+                    <input type="submit"/>
+                </form>
             </header>
         );
     }

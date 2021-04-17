@@ -26,8 +26,9 @@ class Home extends Component{
         this.entry = e.target.value;
     }
   
-    async fetchEntry() {
-        this.setState({req : !this.state.req})
+    async fetchEntry(e) {
+    e.preventDefault();
+    this.setState({req : !this.state.req})
      await this.setState({valueTofetch  : this.entry})
      this.entry = "";
     }
