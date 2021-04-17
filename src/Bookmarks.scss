@@ -7,7 +7,7 @@
   position:absolute;
   top: 5%;
   left: 18%;
-  z-index: 1;
+  
 }
 
 .bookmarks-content {
@@ -19,12 +19,9 @@
   height: 100vh;
   overflow-y: scroll;
   
-
-
   .image-content{
     width: 80%;
-    margin-bottom: -5px;
-    z-index: 5;
+    margin-bottom: 10px;
 
     figcaption {
       position: absolute;    
@@ -69,12 +66,13 @@
   .bookmarks-content {
     display: grid;
     grid-template-columns: 1fr 4fr 4fr 1fr;
+    padding-top: 15%;
+  
     
     .image-content {
 
       &:nth-child(even){
         grid-column: 3 / span 1;
-       
         
       }
       &:nth-child(odd){
@@ -82,8 +80,9 @@
       }
 
       img.image {
-        max-width: 110%;
+        max-width: 100%;
       }
+
       figcaption {
         h2 {
         font-size: 1.4em;
@@ -93,7 +92,6 @@
         height: 23px;
       }
     }
-    }
-    
-    
+  }    
 }
+
