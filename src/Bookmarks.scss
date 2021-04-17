@@ -4,53 +4,72 @@
   flex-direction: column;
   align-items: center;
   background: black;
-  padding-top: 25%;
+  padding-top: 10%;
   height: 100vh;
   overflow-y: scroll;
 
-.image-content{
-  width: 80%;
+  .image-content{
+    width: 80%;
+    margin-bottom: -5px;
 
-  figcaption {
-    position: absolute;    
-    left: 1%;
-    width: 50%;
-    height:20%;
-    background: rgba(0, 0, 0, 0.787);
-    border-radius: 2px;
+    figcaption {
+      position: absolute;    
+      left: 1%;
+      width: 50%;
+      height:20%;
+      background: rgba(0, 0, 0, 0.787);
+      border-radius: 2px;
 
-    h2 {
-      color: white;
-      font-size: 1.1em;
-      
+      h2 {
+        color: white;
+        font-size: 1.1em;
+      }
     }
 
+    .buttonAddRemove{
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      top: 90%;
+      left: 15%;
+      width: 70%;
+      box-shadow: none;    
+
+      button {
+        background: #f5471c;
+        font-size: 1.3rem;
+        color: white;
+        border-radius: 3px;
+        border: none;
+
+        &:first-child {
+          background: #4a4a4a;
+        }
+      }
+    }
   }
+}
 
-  .buttonAddRemove{
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    top: 90%;
-    left: 15%;
-    width: 70%;
-    box-shadow: none;    
+// Small Tablet screen
+@media screen and (min-width: 768px){
+  .bookmarks-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+   
 
-    button {
-      background: #f5471c;
-      font-size: 1.3rem;
-      color: white;
-      border-radius: 3px;
-      border: none;
-
-      &:first-child {
-        background: #4a4a4a;
+    .title {
+      display: none;
+    }
+    .image-content{
+      margin:10%;
+      width: 77%;   
+      figcaption h2 {
+        font-size: 1.4em;
+      }   
+      .buttonAddRemove{
+        height: 23px;
       }
     }
     
-
   }
-  
-}
-
 }
