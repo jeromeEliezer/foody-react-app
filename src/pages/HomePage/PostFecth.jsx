@@ -102,7 +102,7 @@ class PostFetch extends Component{
                                                             <div key={ el.idMeal } className='fetch-result-wrapper'>
                                                                 <img style={{cursor: "pointer"}}className="options-icon" src={ optionsIcon } onClick = { this.handleOptions } alt="options-icon"/>
                                                                 <div style= {{display : "none"}} className ='options-params'>
-                                                                    <h5 data-id={el.idMeal} data-img ={el.strMealThumb} data-name={el.strMeal} onClick ={this.addToBookmarks}>Add to bookmarks</h5>
+                                                                    <h5 data-id={el.idMeal} data-img ={el.strMealThumb} data-name={el.strMeal} onClick ={this.addToBookmarks}>Add to favorites</h5>
                                                                     <h5 data-id={el.idMeal} data-img ={el.strMealThumb} data-name={el.strMeal} onClick={this.showDetails}>Show details</h5>
                                                                 </div>
                                                                 <img  className="fetch-image"   src={ el.strMealThumb } alt=""/>
