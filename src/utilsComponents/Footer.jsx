@@ -6,7 +6,7 @@ const style = {
     justifyContent : "space-evenly",
     background : "black",
     color : "white",
-    fontSize : "1rem",
+    fontSize : "1.3rem",
     height : "12vh",
     width:"100%",
     
