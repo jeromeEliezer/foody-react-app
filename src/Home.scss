@@ -1,4 +1,9 @@
+@font-face{
+    font-family: 'Ananda';
+    src:url('./ananda_2/AnandaPersonalUse.ttf')
+}
 
+    //font-family: 'Zilla Slab Highlight', cursive;
 
 html{
     font-size : 62.5%;
@@ -28,6 +33,7 @@ body{
     height : 100%;
 }
 header{
+    position:relative;
     overflow: hidden;
     height : 43vh;
     width:100vw;
@@ -39,6 +45,15 @@ header{
     -webkit-transition : all 1s ease-out;
     transition: all 1s ease-out;
     // position:relative;
+    h1{
+        position:absolute;
+        top:6%;
+        left:5%;
+        font-family: 'Ananda';
+        font-size: 3.5rem;
+        color:white;
+        text-shadow: 0 0 5px black;
+    }
 }
 
 .searchFields{
