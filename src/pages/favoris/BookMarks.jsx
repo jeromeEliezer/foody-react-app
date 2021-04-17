@@ -69,7 +69,7 @@ render() {
         <React.Fragment>
             <NavBar backgroundColor="white"/>  
                 <div className="bookmarks-content">
-                <h1 style={{color: "white"}}>Favorites</h1>                                        
+                    <h1 className="title" style={{color: "white"}}>Favorites</h1>                                                            
                     {display (this.state.addFavorite, this.showDetails, this.removeFavorite)}                    
                 </div>    
             <Footer/>   
@@ -92,7 +92,7 @@ function getStorage(){
 
 function display (arr, showDetails, removeFavorite){
     if (arr.length>0){
-        console.log("coucou")             
+        // console.log("coucou")             
         return (arr.map(el => (
         <figure className="image-content">    
             <img src={el.img} alt=""/>
@@ -106,7 +106,7 @@ function display (arr, showDetails, removeFavorite){
         </figure>                   
         )))}
         else{
-            console.log("Match")
+            // console.log("Match")
             return <h3 style={{color:"white", fontSize:"2rem"}}>You don't have any favorites...</h3>
             
         }
