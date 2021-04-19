@@ -2,33 +2,27 @@
     font-family: 'Ananda';
     src:url('./ananda_2/AnandaPersonalUse.ttf')
 }
-
-    //font-family: 'Zilla Slab Highlight', cursive;
-
 html{
     font-size : 62.5%;
 }
-
 body{
     margin:0;
     padding:0;
 }
 
-
 *{
     box-sizing:border-box
 }
-
 .Home-wrapper{
     // height:120vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
+    align-items: center;
     // padding:0;
     // background-color: rgba(0, 0, 0, 0.111);
 }
-
 .upper-content-main-wrapper{
     height : 100%;
 }
@@ -55,7 +49,6 @@ header{
         text-shadow: 0 0 5px black;
     }
 }
-
 .searchFields{
     width : 90%;
     height : 30px;
@@ -91,7 +84,7 @@ header{
     img{
         position:absolute;
         left:95%;
-        max-width:30px;
+        max-width:4%;
         transform: translateX(-50%);
         border-radius : 8px;
         cursor: pointer;
@@ -105,7 +98,6 @@ header{
         width : 18px;
     }
 }
-
 //middle content
 figure{
    
@@ -145,15 +137,12 @@ figure{
             font-size: 1rem;
             // text-decoration: underline 0.3px;
         }
-      
     }
 }
-
 //placeholder POstftch au cas où il n'y a pas de match ---> recherche  du user
 i{
     display: none;
 }
-
 //container that shows results
 .fetch-response-container{
     width:100vw;
@@ -169,9 +158,8 @@ i{
     &>*{
         grid-row-start: 2 ;
     }
-
-    ///each div grid displayed
-    div.fetch-result-wrapper{
+    ///div grid displayed that show results
+    .fetch-result-wrapper{
         padding: 0;
         height: 50%;
         min-width : 90vw;
@@ -194,7 +182,6 @@ i{
             left:13%;
             width : 200px;
             padding: 0;
-            
             ///h5
             &>*{
                 margin:5%;
@@ -224,6 +211,98 @@ i{
             
         }
     }
-    
-    
+}
+
+@media screen and (min-width:900px){
+    header{
+       h1{
+           position:fixed;
+           top : 1%;
+           z-index: 10;
+           height: 60vh !important;
+
+       }
+    }
+    nav{
+        z-index:9;
+        max-height : 10vh;
+        min-width:100%;
+        background-color: rgba(0, 0, 0, 0.563) !important;
+        position : static;
+        margin-bottom:5%;
+        justify-content: flex-end  !important;
+        align-items: flex-end !important;
+        //menu burger icon
+        div{
+            display:none !important;
+        }
+        ul{
+            align-items: center !important;
+            justify-content: space-evenly !important;
+            min-width:80%;
+            position : relative;
+            flex-direction: row !important;
+            
+        }
+    }
+    // each link in nav
+    a{
+        position : relative;
+        &::before{
+                    content : '';
+                    position: absolute;
+                    left : 50%;
+                    top : -15px;
+                    transform :translateX(-50%);
+                    width:0;
+                    transition: 0.2s;
+                }
+        }
+        &:hover::before{
+            border : 10px solid transparent;
+            border-top : 11px solid white;
+           
+        }
+    //form qui contient la barre de recherche
+    .searchFields{
+        width : 50%;
+
+    }
+    //section du milieu
+    .middle-content-wrapper{
+        // border: 1px solid red;
+        height : 100%;
+        display: flex;
+        justify-content: center;
+    }
+    figure{
+        width : 50%;
+        // height : 20vh;
+        figcaption{
+            position : relative;
+            left : -2%;
+            top:2%;
+        }
+    }
+    p.description{
+        display: block !important;
+        flex:1;
+        width:80%;
+        margin : 4% 3%;
+        padding: 3%;
+        max-height:470px;
+        color:white;
+        background-color: black;
+        line-height:20px;
+        font-size: 1.8rem;
+    }
+
+    div.fetch-result-wrapper{
+        // border:1px solid red;
+        min-width:35vw !important;
+        img.fetch-image{
+            max-width: 90% !important;
+        }
+    }
+
 }

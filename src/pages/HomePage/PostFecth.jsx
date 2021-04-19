@@ -8,23 +8,34 @@ class PostFetch extends Component{
     constructor(props){
 
         super(props);
-
+        
         this.state = {
             items : [],
             position : "static",
             display : "none",
             isDisplayed : false
         }
+        this.mealNameStyle = {
+            position : "absolute",
+            left : "45%",
+            transform : "translateX(-50%)",
+            textAlign : "center",
+            color:"white",
+            border : "1px solid white",
+            padding: "2%",
+            width : "40%",
+            borderRadius : "8px"
+        }
     }
-
     async componentDidUpdate(prevProps, prevState){
         if(this.props.checkRequest !== prevProps.checkRequest){
-            
+
             await this.fetch();
-            
 
             if(this.state.items !== [] && document.querySelector('.fetch-response-container')){
-                document.querySelector('.fetch-response-container').scrollIntoView({behavior:'smooth'})
+
+                document.querySelector('.fetch-response-container').scrollIntoView({behavior:'smooth'});
+
                 }
          }
     }
@@ -74,6 +85,7 @@ class PostFetch extends Component{
         const favList = [];
 
         if(localStorage.getItem('bookmarks') !== null && localStorage.getItem('bookmarks') !== ""){
+
             favList.push(localStorage.getItem('bookmarks'));
 
         }
@@ -81,11 +93,7 @@ class PostFetch extends Component{
         favList.push(meal+ "  ");
 
         localStorage.setItem('bookmarks',favList);
-        e.target.parentElement.nextSibling.nextSibling.style.display = "block"
-
-        console.log(localStorage.getItem('bookmarks'))
-        
-
+        e.target.parentElement.nextSibling.nextSibling.style.display = "block";
     }
 
     ///show detail button event
@@ -93,8 +101,6 @@ class PostFetch extends Component{
         const id = e.target.getAttribute('data-id');
         this.props.redirect.push(`/details/${id}`);
     }
-
-
 
     render(){
             switch( true ){
@@ -117,7 +123,8 @@ class PostFetch extends Component{
                                                                 <img  className="fetch-image"   src={ el.strMealThumb } alt=""/>
                                                                 {/* star appear if meal is added to favorites */}
                                                                 <img className='favorite' style={ { display:"none" } } src={ star } alt="favorite-icon"/>
-
+                                                                
+                                                                <h3 style={this.mealNameStyle}>{el.strMeal}</h3>
                                                             </div>
                                                         )
                                                     })}

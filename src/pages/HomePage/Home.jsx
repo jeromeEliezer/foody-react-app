@@ -16,7 +16,7 @@ class Home extends Component{
         this.entry = ""
         this.setFetch = this.setFetch.bind(this);
         this.fetchEntry = this.fetchEntry.bind(this);
-        this.navColorAdapter();
+        // this.navColorAdapter();
         console.log(this.props)/////////////////
     }
 
@@ -34,12 +34,11 @@ class Home extends Component{
     }
 
 
-    navColorAdapter = ()=>{
-        window.addEventListener('scroll',()=>{
-
-            console.log("smooth scrolled home.jsx line 34");
-            window.scrollY >= window.innerHeight ? this.setState({menuBugerBgcolor : 'black'}) : this.setState({menuBugerBgcolor : 'white'})
-        })}
+    // navColorAdapter = ()=>{
+    //     window.addEventListener('scroll',()=>{
+            
+    //         window.scrollY >= document.querySelector('header').clientHeight && window.scrollY <= document.querySelector('.upper-content-main-wrapper').scrollBottom? this.setState({menuBugerBgcolor : 'black'}) : this.setState({menuBugerBgcolor : 'white'})
+    //     })}
                         
 
     render(){
