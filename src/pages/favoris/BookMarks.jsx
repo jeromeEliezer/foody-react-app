@@ -81,10 +81,10 @@ render() {
     console.log(this.state.addFavorite)
     return(
         <div className="bookmark-wrapper">
-            <a href="/">
-                <img style={{display: this.state.display}} className='prev-icon' src={previous} />
-            </a>
-            <NavBar backgroundColor="white"/>                  
+            <NavBar backgroundColor="white"/>
+                <a href="/">
+                    <img style={{display: this.state.display}} className='prev-icon' src={previous} />
+                </a> 
                 <div className="bookmarks-content" onScroll={this.isDisplayPrevIcon}>
                 
                     {display (this.state.addFavorite, this.showDetails, this.removeFavorite)}                    
