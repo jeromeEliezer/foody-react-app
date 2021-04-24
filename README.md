@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Foody-React-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Une application ReactJS pour les passionnées de cuisine nous permet de lister/filtrer les recettes de cusine en récupérant les informations d'une API (https://www.themealdb.com/api.php). C'est un projet de groupe dans le cadre de la formation à Simplon. 
 
-## Available Scripts
+<p align="center">
+    <img src="https://img.shields.io/github/repo-size/Puthpiseth/foody-react-app" />
+    <img src="https://img.shields.io/github/issues/Puthpiseth/foody-react-app" />
+    <img src="https://img.shields.io/github/last-commit/Puthpiseth/foody-react-app" />
+    <img src="https://img.shields.io/badge/Javascript-red" />
+     <img src="https://img.shields.io/badge/React-blue" />
+     <img src="https://img.shields.io/badge/API-blue" />
 
-In the project directory, you can run:
+## User Stories
 
-### `npm start`
+En tant que visiteur du site je veux pouvoir :
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Trouvez des recettes via leurs :
+    - nom
+    - catégorie
+    - ingrédient principale
+    - pays d'origine
+- Affichez le détails d'une recette => instruction / ingrédient&mesure / vidéo (si existante)
+- Affichez une recette au hasard (son détails)
+- Lister les catégorie de recettes
+- Lister les pays d'origine
+- Ajouter/lister/supprimer des recettes dans mes favories
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Instructions d'installation
 
-### `npm test`
+    npx create-react-app foody-react-app
+    npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Installer axios pour faire de la requête API
 
-### `npm run build`
+        npm install axios
+- Installer la route
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+        npm install react-router-dom
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Maquette de l'application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Mobile
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Tablette
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Desktop
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Contributeurs
+Charles EKOMIE Github: https://github.com/charade 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Puthpiseth TUN Github: https://github.com/Puthpiseth
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Jerome ELIEZER VANEROT Github: https://github.com/eliezer-web
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
