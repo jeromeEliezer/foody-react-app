@@ -12,7 +12,7 @@ const navStyle = {
     justifyContent : "center",
     alignItems : "center",
     background:"black",
-    zIndex : 2,
+    zIndex : 50,
     transition : "0.5s ease-out"
     
 }
@@ -98,8 +98,8 @@ class NavBar extends Component {
                     <span className="menuBurgerIconLines" style={{...MenuBurgerIconLines, backgroundColor: this.props.backgroundColor}}></span>
                 </div>
                 <ul style={menuOptionsListStyle}>
-                    <li style={optionStyle}><a style={optionLinkStyle} href="">Home</a></li>
-                    <li style={optionStyle}><a style={optionLinkStyle} href="">Bookmarks</a></li>
+                    <li style={optionStyle}><a href="/" style={optionLinkStyle} >Home</a></li>
+                    <li style={optionStyle}><a style={optionLinkStyle} href="/Bookmarks">Bookmarks</a></li>
                     <li style={optionStyle}><a style={optionLinkStyle} href="">Profile</a></li>
                 </ul>
             </nav>     

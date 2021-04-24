@@ -13,6 +13,7 @@ body{
 *{
     box-sizing:border-box
 }
+
 .Home-wrapper{
     // height:120vh;
     display: flex;
@@ -20,25 +21,25 @@ body{
     justify-content: space-between;
     overflow: hidden;
     align-items: center;
-    // padding:0;
-    // background-color: rgba(0, 0, 0, 0.111);
 }
+
 .upper-content-main-wrapper{
     height : 100%;
 }
+
 header{
     position:relative;
-    overflow: hidden;
+    // overflow: hidden;
     height : 43vh;
     width:100vw;
-    // background-color: wheat;
     background-size: cover;
     background-position: center ;
     background-repeat: no-repeat;
     -moz-transition : all 1s ease-out ;
     -webkit-transition : all 1s ease-out;
     transition: all 1s ease-out;
-    // position:relative;
+
+    //logo
     h1{
         position:absolute;
         top:6%;
@@ -48,6 +49,74 @@ header{
         color:white;
         text-shadow: 0 0 5px black;
     }
+
+
+    //profile-icon block
+    .profile-block{
+
+        display: flex;
+        justify-content: center;
+        flex-direction : column !important;
+        z-index: 30;
+        transition: .5s;
+
+        label{
+            position:absolute;
+            top:102%;
+            left:-7%;
+            width : 88px;
+            font-size: 1.4rem;
+            color:white;
+            padding:3%;
+            background-color: rgba(86, 97, 127, 0.961);
+            border-radius: 5px;
+            text-align: center;
+
+        }
+        input{
+            position: absolute;
+            left : -7%;
+            top:102.3%;
+            width:89px;
+            opacity:0;
+            z-index:40;
+            
+
+        }
+        img{
+            cursor : pointer;
+            max-width: 80px;
+        }
+        
+    }
+ //history block in profile block
+    .history{
+        // height : 200vh;
+        margin : 50% 0 0 0;
+        overflow: auto;
+        p{
+            font-size:1.8rem;
+            padding : 3%;
+            background : #4A4A4A;
+            border-radius : 8px;
+            width : 200px;
+            text-align: center;
+            color:white;
+            box-shadow: 0 0 5px black;
+        }
+        ul{
+            list-style:none;
+            li{
+                margin: 7%;
+            }
+        }
+        a{
+            color:black;
+            font-size: 1.7rem;
+            text-decoration: none;
+        }
+    }
+
 }
 .searchFields{
     width : 90%;
@@ -60,11 +129,10 @@ header{
     align-items: center;
     justify-content: center;
     padding:0 !important;
-    &>*{
-    }
+    // z-index : 100;
     input[type='text']{
-    //    width : 100%;
-    flex:3;
+        padding : 4%;
+       flex:3;
        height:100%;
        border-radius : 10px;
        border:none;
@@ -77,10 +145,11 @@ header{
            font-style: italic;
            font-family: Arial, Helvetica, sans-serif;
            font-weight : 100;
-           font-size: 1rem;
+           font-size: 2rem;
            opacity: 0.3;
        }
     }
+    //search icon
     img{
         position:absolute;
         left:95%;
@@ -135,7 +204,6 @@ figure{
             text-align:center;
             padding:6%;
             font-size: 1rem;
-            // text-decoration: underline 0.3px;
         }
     }
 }
@@ -202,13 +270,11 @@ i{
             position:absolute;
             top:-1%;
             right:8%;
-            
         }
 
         .fetch-image{
             border-radius: 8px;
             max-width : 90%
-            
         }
     }
 }
@@ -220,7 +286,6 @@ i{
            top : 1%;
            z-index: 10;
            height: 60vh !important;
-
        }
     }
     nav{
@@ -242,22 +307,23 @@ i{
             min-width:80%;
             position : relative;
             flex-direction: row !important;
-            
         }
+
+        a{
+            position : relative;
+            &::before{
+                        content : '';
+                        position: absolute;
+                        left : 50%;
+                        top : -15px;
+                        transform :translateX(-50%);
+                        width:0;
+                        transition: 0.2s;
+                    }
+            }
     }
     // each link in nav
-    a{
-        position : relative;
-        &::before{
-                    content : '';
-                    position: absolute;
-                    left : 50%;
-                    top : -15px;
-                    transform :translateX(-50%);
-                    width:0;
-                    transition: 0.2s;
-                }
-        }
+    
         &:hover::before{
             border : 10px solid transparent;
             border-top : 11px solid white;
@@ -295,6 +361,7 @@ i{
         background-color: black;
         line-height:20px;
         font-size: 1.8rem;
+        overflow: scroll;
     }
 
     div.fetch-result-wrapper{

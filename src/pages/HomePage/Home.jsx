@@ -17,11 +17,8 @@ class Home extends Component{
         this.setFetch = this.setFetch.bind(this);
         this.fetchEntry = this.fetchEntry.bind(this);
         // this.navColorAdapter();
-        console.log(this.props)/////////////////
     }
 
-
-   
     setFetch(e){
         this.entry = e.target.value;
     }
@@ -33,18 +30,16 @@ class Home extends Component{
      this.entry = "";
     }
 
-
     // navColorAdapter = ()=>{
     //     window.addEventListener('scroll',()=>{
             
     //         window.scrollY >= document.querySelector('header').clientHeight && window.scrollY <= document.querySelector('.upper-content-main-wrapper').scrollBottom? this.setState({menuBugerBgcolor : 'black'}) : this.setState({menuBugerBgcolor : 'white'})
     //     })}
                         
-
     render(){
-        return (
+        return(
                 <div className = "Home-wrapper">
-                    <div classeName = "upper-content-main-wrapper">
+                    <div className = "upper-content-main-wrapper">
                         <Header entry ={this.setFetch} fetchEntry ={this.fetchEntry} menuBurgerBg = {this.state.menuBugerBgcolor}/>
                         <HomeContent/>
                     </div>
@@ -54,5 +49,4 @@ class Home extends Component{
             )
     }
 }
-
 export default Home  
