@@ -1,9 +1,9 @@
 import NavBar from '../../utilsComponents/NavBar';
 import Footer from '../../utilsComponents/Footer';
-import previous from '../../previous.svg'
-import React, { Component } from 'react'
+import previous from '../../previous.svg';
+import React, { Component } from 'react';
 import { render } from '@testing-library/react';
-import axios from 'axios';
+import getStorage from '../../utilsComponents/utils_functions';
 
 
 
@@ -25,7 +25,6 @@ isDisplayPrevIcon = (e)=>{
     const imageContent = document.querySelector(".image-content")
     if(e.target.scrollTop > imageContent.scrollTop + imageContent.clientHeight/2 ){
         this.setState({display: "none"});
-        console.log("Work")
     }
     else{
         this.setState({display: "block"});
@@ -34,7 +33,6 @@ isDisplayPrevIcon = (e)=>{
 
 componentDidMount(){
     this.uploadBookmarks();
-    // console.log(this.state.addFavorite)
   
 }
 
@@ -49,36 +47,51 @@ showDetails = (e) =>{
 }
 
 removeFavorite = (e) =>{
+    //if bin local storage isn't empty we take the content to increment with the next deleted item from bookmarks localStorage
+    let binArr = []
+    if(localStorage.getItem('bin') !== null && localStorage.getItem('bin') !== ""){
+        binArr.push(localStorage.getItem("bin"))
+    }
     
-    let dataFav = getStorage();    
+    // meals localStorage is loaded
+    let dataFav = getStorage(localStorage.getItem("bookmarks"));    
     const id = e.target.getAttribute('data-id')
+
     for(let i=0; i<dataFav.length; i++){
+
         if(Object.values(dataFav[i]).indexOf(id)!== -1){
+
+            //deleted favorite meals are load in a bin localStorage in order to know which ones are been deleted
+            let new_item = JSON.stringify(dataFav[i])
+
+            //we'll need later to split correctly in order to get every object from the localStorage
+            binArr.push(new_item + "  ");
+
+            localStorage.setItem("bin",binArr)
+
+
+            //meal is deleted from favorites localStorage
             dataFav.splice(i, 1);
-            // console.log(id);
         }
 
     }
     dataFav = dataFav.map(element => JSON.stringify(element) + "  ");
-    // console.log(dataFav)
     localStorage.setItem('bookmarks', dataFav)
 
-    const addFavorite = getStorage();
+    const addFavorite = getStorage(localStorage.getItem("bookmarks"));
     this.setState({addFavorite});
     
 }
 
 uploadBookmarks = async () =>{
 
-    const addFavorite = getStorage();
+    const addFavorite = getStorage(localStorage.getItem("bookmarks"));
     await this.setState({addFavorite});
-    // console.log(this.state.addFavorite)
 }
 
 
 render() {
 
-    console.log(this.state.addFavorite)
     return(
         <div className="bookmark-wrapper">
             <NavBar backgroundColor="white"/>
@@ -97,22 +110,13 @@ render() {
 
 }
 
-function getStorage(){
-    if(localStorage.getItem("bookmarks")!== ""){
-        let addFavorite = localStorage.getItem("bookmarks").split("  ,");
-        addFavorite = addFavorite.map(el => JSON.parse(el));
-        return addFavorite;
-    }
-    return [];
-    
-}
-
+// grid display favorite localStorage 
 function display (arr, showDetails, removeFavorite){
     if (arr.length>0){
-        // console.log("coucou")             
+
         return (arr.map(el => (
         <figure className="image-content">    
-            <img class="image" src={el.img} alt=""/>
+            <img className="image" src={el.img} alt=""/>
             <figcaption>
                 <h2>{el.name}</h2>
             </figcaption>

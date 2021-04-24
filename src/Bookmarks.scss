@@ -64,11 +64,18 @@
 // Small Tablet screen
 @media screen and (min-width: 768px){
   .bookmarks-content {
+    position : relative;
     display: grid;
     grid-template-columns: 1fr 4fr 4fr 1fr;
     padding-top: 15%;
   
-    
+    h3{
+      position : absolute;
+      top : 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+
+    }
     .image-content {
 
       &:nth-child(even){
