@@ -9,6 +9,7 @@ class Details extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            height:window.innerHeight /1.5,
             width: window.innerWidth /1.1,
             lien : "",
             image: "",
@@ -20,9 +21,11 @@ class Details extends Component {
          this.loadContent=this.loadContent.bind(this);
     }
 
+
     // modification width pour rendre responsive la video
     resizevideo = () =>{
         window.addEventListener('resize', ()=>{
+            this.setState({height:window.innerHeight/1.5})
             this.setState({width:window.innerWidth/1.1})
         });  
     }
@@ -49,10 +52,10 @@ render() {
                 <a href="/">
                     <img className='previous-icon' src={previous} />
                 </a>
-                <iframe src = {this.state.lien} width={this.state.width} frameborder="0" height="259px"></iframe>
+                <iframe src = {this.state.lien} width={this.state.width} frameborder="0" height={this.state.height} allowfullscreen="true" ></iframe>
                 <figure className='details' >
-                <img src={this.state.image} className='imageDetails'></img>
-                    <figcaption>
+                <img src={this.state.image} className='imageDetails'/>
+                    <figcaption className = "figCaption">
                         <h2>{this.state.title}</h2> 
                     </figcaption>
                 </figure>
