@@ -44,21 +44,39 @@ En tant que visiteur du site je veux pouvoir :
 ## Maquette de l'application
 
 - Mobile
+    - home
 
 ![](src/mobile-layout.png)
+
+    - favoris
+
 ![](src/mobile-layout-favoris.png)
 
 - Tablette
+    - home
 
 ![](src/Tablet-layout-home.png)
+
+    - favoris
+
 ![](src/Tablet-layout-favoris.png)
+
+    - details
+
 ![](src/Tablet-layout-details.png)
 
 
 - Desktop
+    - home
 
 ![](src/Desktop-layout-home.png)
+
+    - favoris
+
 ![](src/Desktop-layout-favoris.png)
+
+    - details
+
 ![](src/Desktop-layout-details.png)
 
 
