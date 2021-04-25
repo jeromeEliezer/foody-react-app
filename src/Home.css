@@ -54,7 +54,7 @@ header h1 {
   top: 6%;
   left: 5%;
   font-family: 'Ananda';
-  font-size: 3.5rem;
+  font-size: 3.1rem;
   color: white;
   text-shadow: 0 0 5px black;
 }
@@ -437,6 +437,24 @@ i {
   max-width: 90%;
 }
 
+@media screen and (min-width: 768px) {
+  .middle-content-wrapper {
+    max-height: 20%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .middle-content-wrapper figure {
+    max-width: 70%;
+  }
+}
+
 @media screen and (min-width: 900px) {
   header h1 {
     position: fixed;
@@ -483,7 +501,7 @@ i {
     padding-left: 45%;
   }
   nav {
-    max-height: 12vh;
+    max-height: 9.99vh;
     min-width: 100%;
     background-color: rgba(0, 0, 0, 0.863) !important;
     position: static;
@@ -491,9 +509,9 @@ i {
     -webkit-box-pack: end  !important;
         -ms-flex-pack: end  !important;
             justify-content: flex-end  !important;
-    -webkit-box-align: end !important;
-        -ms-flex-align: end !important;
-            align-items: flex-end !important;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
   }
   nav div {
     display: none !important;
@@ -534,16 +552,10 @@ i {
     width: 50%;
   }
   .middle-content-wrapper {
-    height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    max-height: 90% !important;
   }
   figure {
-    width: 40%;
+    min-width: 46%;
   }
   figure figcaption {
     position: relative;
@@ -555,10 +567,10 @@ i {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    width: 80%;
-    margin: 4% 3%;
+    border-radius: 5px;
+    min-width: 44%;
+    margin: 2% 3% 0 0;
     padding: 3%;
-    max-height: 470px;
     color: white;
     background-color: black;
     line-height: 20px;
@@ -570,6 +582,54 @@ i {
   }
   div.fetch-result-wrapper img.fetch-image {
     max-width: 90% !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    top: 2.6% !important;
+  }
+  .middle-content-wrapper figure {
+    margin-left: 5% !important;
+    width: 48%;
+    height: 88% !important;
+  }
+  .middle-content-wrapper figure img {
+    height: 100%;
+    min-width: 90%;
+  }
+  .middle-content-wrapper figure figcaption:nth-child(n) {
+    position: absolute;
+    top: 102%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    background-color: #111;
+    border: 1px solid white;
+    -webkit-box-shadow: 0 0 10px black !important;
+            box-shadow: 0 0 10px black !important;
+  }
+  .middle-content-wrapper p.description {
+    max-width: 45%;
+    height: 430px !important;
+  }
+  footer {
+    margin-top: 10%;
+    min-height: 100% !important;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  h1 {
+    top: 1% !important;
+  }
+  .middle-content-wrapper figure {
+    margin-left: 5% !important;
+    width: 40%;
+    height: 88% !important;
+  }
+  .middle-content-wrapper figure img {
+    min-width: 50%;
   }
 }
 /*# sourceMappingURL=Home.css.map */
