@@ -52,7 +52,7 @@ render() {
                 <a href="/">
                     <img className='previous-icon' src={previous} />
                 </a>
-                <iframe src = {this.state.lien} width={this.state.width} frameborder="0" height={this.state.height} allowfullscreen="true" ></iframe>
+                <iframe src = {this.state.lien} width={this.state.width} frameBorder="0" height={this.state.height} allowFullScreen="true" ></iframe>
                 <figure className='details' >
                 <img src={this.state.image} className='imageDetails'/>
                     <figcaption className = "figCaption">
