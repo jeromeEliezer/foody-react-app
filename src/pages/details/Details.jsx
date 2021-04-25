@@ -50,11 +50,11 @@ render() {
         <div className='details-wrapper'>
             <div className='detailsContent'>
                 <a href="/">
-                    <img className='previous-icon' src={previous} />
+                    <img alt ="previous" className='previous-icon' src={previous} />
                 </a>
                 <iframe src = {this.state.lien} width={this.state.width} frameBorder="0" height={this.state.height} allowFullScreen="true" ></iframe>
                 <figure className='details' >
-                <img src={this.state.image} className='imageDetails'/>
+                <img  alt ="mealimage" src={this.state.image} className='imageDetails'/>
                     <figcaption className = "figCaption">
                         <h2>{this.state.title}</h2> 
                     </figcaption>
