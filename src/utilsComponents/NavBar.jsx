@@ -28,7 +28,7 @@ const menuBurgerIconStyle = {
     top : "5%",
     left : "85%",
     // background : "transparent",
-    zIndex : 4
+    zIndex : 3
 }
 
 //span

@@ -12,8 +12,8 @@ class PostFetch extends Component{
         this.state = {
             items : [],
             position : "static",
-            display : "none",
-            isDisplayed : false
+            displayOptions : "none",
+            areOptionsDisplayed : false
         }
         this.mealNameStyle = {
             position : "absolute",
@@ -25,25 +25,28 @@ class PostFetch extends Component{
             padding: "2%",
             width : "40%",
             borderRadius : "8px"
-        }
+        }; 
+
     }
+
     async componentDidUpdate(prevProps, prevState){
+
+
         if(this.props.checkRequest !== prevProps.checkRequest){
 
             await this.fetch();
 
             if(this.state.items !== [] && document.querySelector('.fetch-response-container')){
-
                 document.querySelector('.fetch-response-container').scrollIntoView({behavior:'smooth'});
-
-                }
+            }
          }
     }
+
     fetch = async ()=>{
         let items = [];
         let resSingleMeal = null;
         let resCategory = null;
-        let resMainIngredient = null
+        let resMainIngredient = null;
         let resArea = null
 
         if(this.props.entry){
@@ -67,9 +70,9 @@ class PostFetch extends Component{
 
     // addTofavorite and show detail options in result views if match
      handleOptions = async(e) =>{
-       await this.setState({isDisplayed : ! this.state.isDisplayed});
-       this.state.isDisplayed ? this.setState({display: "block"}) : this.setState({display: "none"});
-        e.target.nextSibling.style.display = this.state.display;
+       await this.setState({areOptionsDisplayed : ! this.state.areOptionsDisplayed});
+       this.state.areOptionsDisplayed ? this.setState({ displayOptions: "block" }) : this.setState({ displayOptions:"none" });
+        e.target.nextSibling.style.display = this.state.displayOptions;
     }
 
     // Save favorite in  localStorage
@@ -78,22 +81,45 @@ class PostFetch extends Component{
         const img  = e.target.getAttribute('data-img');
         const name = e.target.getAttribute('data-name');
 
-        //We need to make a string from our data before storing in localStorage
-        const meal = JSON.stringify({ id: id, img: img, name: name});
+        //we select errBox in the same box
+        const errBox = e.target.parentElement.parentElement.firstElementChild;
+        // document.querySelector('p.error-message').style.height = "30px"
 
-        //useful if we need to add element in localStorage ...if localStorage don't exist yet it's created
-        const favList = [];
+        //boolean that check if we can add the item in the localStorage
+        let weCanAddThisOne = true;
 
+         //useful if we need to add element in localStorage ...if localStorage don't exist yet it's created
+         const favList = [];
+        
+
+        //if localStorage exists we need to load it's content and increment it with the selected element
         if(localStorage.getItem('bookmarks') !== null && localStorage.getItem('bookmarks') !== ""){
 
+            const bookmarks = localStorage.getItem('bookmarks');
+            //we check if the item id's already in localStorage
+            const reg = new RegExp(`${id}`) ;
+            if(reg.test(bookmarks)){
+                weCanAddThisOne = false;
+            }
             favList.push(localStorage.getItem('bookmarks'));
 
         }
         /// we add to space to split our datas in order to use them in bookmarks section
-        favList.push(meal+ "  ");
+        if(weCanAddThisOne){
+            //We need to make a string from our data before storing in localStorage
+            const meal = JSON.stringify({ id: id, img: img, name: name});
 
-        localStorage.setItem('bookmarks',favList);
-        e.target.parentElement.nextSibling.nextSibling.style.display = "block";
+            //later to take meals from localStorage we'll need to split
+            favList.push(meal+ "  ");
+            localStorage.setItem('bookmarks',favList);
+            e.target.parentElement.nextSibling.nextSibling.style.display = "block";
+        }
+
+        else{
+            errBox.style.height = "25px";
+            setTimeout(() => errBox.style.height = 0, 3000)
+        }
+       
     }
 
     ///show detail button event
@@ -111,10 +137,15 @@ class PostFetch extends Component{
                                                 <div className="fetch-response-container">
                                                     { this.state.items.map(el=>{
                                                         return (
+                                                            
+                                                            // each block
                                                             <div key={ el.idMeal } className='fetch-result-wrapper'>
+
+                                                                <p className= "error-message">Already in your favorites</p>
+
                                                                 {/* imge option to click ON */}
                                                                 <img style={{cursor: "pointer"}}className="options-icon" src={ optionsIcon } onClick = { this.handleOptions } alt="options-icon"/>
-                                                                {/* options */}
+                                                                {/* options (addTobookmarks | show details*/}
                                                                 <div style= {{display : "none"}} className ='options-params'>
                                                                     <h5 data-id={el.idMeal} data-img ={el.strMealThumb} data-name={el.strMeal} onClick ={this.addToBookmarks}>Add to favorites</h5>
                                                                     <h5 data-id={el.idMeal} data-img ={el.strMealThumb} data-name={el.strMeal} onClick={this.showDetails}>Show details</h5>
