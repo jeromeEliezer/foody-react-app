@@ -53,8 +53,29 @@
 }
 
 .detailsContent p {
+  line-height: 30px;
   width: 90%;
   color: white;
   font-size: 16px;
+}
+
+@media screen and (min-width: 900px) {
+  .previous-icon {
+    border: 3px solid blue;
+    margin-left: -540px;
+    top: 5%;
+    display: none;
+  }
+  .details .imageDetails {
+    max-width: 45%;
+  }
+  .details figcaption.figCaption {
+    position: absolute;
+    top: 55% !important;
+    left: 73%;
+    -webkit-transform: translateY(-55%);
+            transform: translateY(-55%);
+    width: 200px;
+  }
 }
 /*# sourceMappingURL=Details.css.map */
