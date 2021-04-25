@@ -69,9 +69,12 @@ removeFavorite = (e) =>{
 
             localStorage.setItem("bin",binArr)
 
-
+            
+            // alert delete message
+            if (window.confirm("Are you sure?")){
             //meal is deleted from favorites localStorage
-            dataFav.splice(i, 1);
+                dataFav.splice(i, 1);
+            }
         }
 
     }
