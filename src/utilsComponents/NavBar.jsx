@@ -99,7 +99,7 @@ class NavBar extends Component {
                 </div>
                 <ul style={menuOptionsListStyle}>
                     <li style={optionStyle}><a href="/" style={optionLinkStyle} >Home</a></li>
-                    <li style={optionStyle}><a style={optionLinkStyle} href="/Bookmarks">Bookmarks</a></li>
+                    <li style={optionStyle}><a style={optionLinkStyle} href="/Bookmarks">Favoris</a></li>
                 </ul>
             </nav>     
         )
