@@ -37,14 +37,29 @@ En tant que visiteur du site je veux pouvoir :
 
         npm install react-router-dom
 
+- Installer sass
+
+        npm install node-sass
+
 ## Maquette de l'application
 
 - Mobile
 
+![](src/mobile-layout.png)
+![](src/mobile-layout-favoris.png)
 
 - Tablette
 
+![](src/Tablet-layout-home.png)
+![](src/Tablet-layout-favoris.png)
+![](src/Tablet-layout-details.png)
+
+
 - Desktop
+
+![](src/Desktop-layout-home.png)
+![](src/Desktop-layout-favoris.png)
+![](src/Desktop-layout-details.png)
 
 
 
