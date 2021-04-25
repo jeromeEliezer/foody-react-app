@@ -28,7 +28,7 @@ class HomeContent extends Component {
                             <h2>{ this.state.randomMeal.strMeal }</h2>
                         </figcaption>
                 </figure>
-                <p style={ { display:"none" } } className='description'>{this.state.randomMeal.strInstructions}</p>
+                <p style={ { display:"none" } } className='description'><span className='description'>Description</span>{this.state.randomMeal.strInstructions}</p>
             </div>
         );
     }

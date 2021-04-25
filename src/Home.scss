@@ -2,12 +2,20 @@
     font-family: 'Ananda';
     src:url('./ananda_2/AnandaPersonalUse.ttf')
 }
+@font-face{
+    font-family : 'Arimo';
+    src: url('./Arimo/Arimo-VariableFont_wght.ttf')
+}
+
 html{
     font-size : 62.5%;
 }
 body{
     margin:0;
     padding:0;
+    p, p span, h2,a{
+        font-family: 'Arimo';
+    }
 }
 
 *{
@@ -138,6 +146,7 @@ header{
             text-align: center;
             color:white;
             box-shadow: 0 0 5px black;
+            
         }
     
  //  history ul block in profile block
@@ -472,6 +481,7 @@ i{
     //section du milieu
     .middle-content-wrapper{
         max-height : 90%!important ;
+        position: relative;
     }
 
     figure{
@@ -480,9 +490,27 @@ i{
             position : relative;
             left : -2%;
             top:2%;
+            h2{
+                font-size: 1.7rem
+            }
         }
     }
     p.description{
+        
+        span.description{
+            position : absolute;
+            top : 18px;
+            left:70%;
+            font-size: 1.7rem;
+            // transform: translateX(-50%);
+            padding : 1%;
+            z-index: 3;
+            background-color: rgba(17, 17, 17, 0.856);
+            text-align: center;
+            border-radius : 5px;
+            border : 1px solid white;
+            box-shadow: 0 0 10px black;
+        }
         display: block !important;
         flex:1;
         border-radius : 5px;
@@ -494,6 +522,7 @@ i{
         line-height:20px;
         font-size: 1.8rem;
         overflow: scroll;
+        line-height: 25px;
     }
 
     div.fetch-result-wrapper{
@@ -527,7 +556,7 @@ i{
                 top : 102%;
                 left : 50%;
                 transform: translateX(-50%);
-                background-color: #111;
+                background-color: rgba(17, 17, 17, 0.863);
                 border : 1px solid white;
                 box-shadow: 0 0 10px black !important;
             }
