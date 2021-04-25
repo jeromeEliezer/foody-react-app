@@ -56,6 +56,9 @@
         &:first-child {
           background: #4a4a4a;
         }
+        &:hover{
+          opacity: 0.8;
+        }
       }
     }
   }
@@ -97,6 +100,11 @@
       }   
       .buttonAddRemove{
         height: 23px;
+        
+      }
+      button {
+        cursor: pointer;
+        
       }
     }
   }    
@@ -107,6 +115,11 @@
   
     .prev-icon {
       padding-top: 10%;
+    }
+
+    button {
+      width: 60px;
+      
     }
 }
 
