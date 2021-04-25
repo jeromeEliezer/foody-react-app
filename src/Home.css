@@ -77,12 +77,14 @@ header .profile-block {
 
 header .profile-block label {
   position: absolute;
-  top: 102%;
-  left: -7%;
-  width: 88px;
+  top: 110%;
+  left: 8%;
+  width: 68px;
   font-size: 1.4rem;
   color: white;
   padding: 3%;
+  -webkit-box-shadow: 0 0 5px black;
+          box-shadow: 0 0 5px black;
   background-color: rgba(86, 97, 127, 0.961);
   border-radius: 5px;
   text-align: center;
@@ -90,47 +92,110 @@ header .profile-block label {
 
 header .profile-block input {
   position: absolute;
-  left: -7%;
-  top: 102.3%;
-  width: 89px;
+  top: 112.3%;
+  width: 69px;
+}
+
+header .profile-block input[type='file'] {
+  left: 8%;
   opacity: 0;
   z-index: 40;
 }
 
+header .profile-block input[type='submit'] {
+  left: 100%;
+  border: 0.2px solid rgba(0, 0, 0, 0.69);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 5px black;
+          box-shadow: 0 0 5px black;
+  color: rgba(176, 38, 38, 0.882);
+}
+
 header .profile-block img {
   cursor: pointer;
-  max-width: 80px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: black;
+  border: 2px solid white;
+  -webkit-box-shadow: 0 0 4px black;
+          box-shadow: 0 0 4px black;
 }
 
-header .history {
-  margin: 50% 0 0 0;
-  overflow: auto;
+header .history-items-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 50%;
 }
 
-header .history p {
-  font-size: 1.8rem;
-  padding: 3%;
+header .history-content-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 48%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .history-content-wrapper p {
+  font-size: 1.3em;
+  padding: 4%;
   background: #4A4A4A;
   border-radius: 8px;
-  width: 200px;
+  width: 80%;
   text-align: center;
   color: white;
   -webkit-box-shadow: 0 0 5px black;
           box-shadow: 0 0 5px black;
 }
 
-header .history ul {
+header .history-content-wrapper ul.history {
+  overflow: scroll;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   list-style: none;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
-header .history ul li {
-  margin: 7%;
+header .history-content-wrapper ul.history li {
+  position: relative;
+  margin-bottom: 7%;
 }
 
-header .history a {
+header .history-content-wrapper ul.history li::before {
+  content: '';
+  position: absolute;
+  left: -20%;
+  width: 0;
+}
+
+header .history-content-wrapper ul.history li:hover::before {
+  border: 8px solid transparent;
+  border-left: 8px solid rgba(86, 97, 127, 0.961);
+}
+
+header .history-content-wrapper ul.history a {
   color: black;
   font-size: 1.7rem;
   text-decoration: none;
+  text-align: center;
 }
 
 .searchFields {
@@ -173,7 +238,7 @@ header .history a {
   font-style: italic;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 100;
-  font-size: 2rem;
+  font-size: 1.07em;
   opacity: 0.3;
 }
 
@@ -181,7 +246,7 @@ header .history a {
   font-style: italic;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 100;
-  font-size: 2rem;
+  font-size: 1.07em;
   opacity: 0.3;
 }
 
@@ -189,7 +254,7 @@ header .history a {
   font-style: italic;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 100;
-  font-size: 2rem;
+  font-size: 1.07em;
   opacity: 0.3;
 }
 
@@ -197,7 +262,7 @@ header .history a {
   font-style: italic;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 100;
-  font-size: 2rem;
+  font-size: 1.07em;
   opacity: 0.3;
 }
 
@@ -304,6 +369,24 @@ i {
   position: relative;
 }
 
+.fetch-response-container .fetch-result-wrapper p.error-message {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: orange;
+  color: white;
+  font-size: 1.8rem;
+  width: 60%;
+  height: 0;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 8px;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
 .fetch-response-container .fetch-result-wrapper .options-icon {
   position: absolute;
   top: 3%;
@@ -352,11 +435,11 @@ i {
   header h1 {
     position: fixed;
     top: 1%;
-    z-index: 10;
+    z-index: 20;
     height: 60vh !important;
   }
   nav {
-    z-index: 9;
+    z-index: 5;
     max-height: 10vh;
     min-width: 100%;
     background-color: rgba(0, 0, 0, 0.563) !important;

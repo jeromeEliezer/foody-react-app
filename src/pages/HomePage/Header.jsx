@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //search icon
 import search from '../../search.svg';
 import NavBar from '../../utilsComponents/NavBar';
-import Profile from '../../utilsComponents/Profile'
+import Profile from '../../utilsComponents/Profile';
 //Header background images
 import headerBackground1 from '../../headerBackground1.jpg';
 import headerBackground2 from '../../headerBackground2.jpg';
@@ -20,6 +20,7 @@ import headerBackground12 from '../../headerBackground12.jpg';
 class Header extends Component {
     constructor( props ){
         super( props );
+
         this.state = { 
             image : headerBackground12,
         }
@@ -38,7 +39,7 @@ class Header extends Component {
             headerBackground9,
             headerBackground10,
             headerBackground11,
-            headerBackground12,
+            headerBackground12
         ]
     }
 
@@ -58,13 +59,14 @@ class Header extends Component {
     render() {
 
         return (
-            <header style={{backgroundImage :`url(${this.state.image})`}}>
+            <header style={{ backgroundImage :`url(${this.state.image})` }}>
                 <NavBar backgroundColor ={this.props.menuBurgerBg}/>
                 <h1>Foody</h1>
                 <Profile/>
+
                 <form className="searchFields" method='GET' onSubmit= {this.props.fetchEntry}>  
-                    <input type="text" onChange = {this.props.entry} placeholder="Search by area, ingredient, meal name, meal category "/>
-                    <img src={search} alt="search-icon"/>
+                    <input type="text" onChange = { this.props.entry } placeholder="Search by area, ingredient, meal name, meal category "/>
+                    <img src={ search } alt="search-icon"/>
                     <input type="submit"/>
                 </form>
             </header>
