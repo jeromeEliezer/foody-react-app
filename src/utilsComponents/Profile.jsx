@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import profile_image from '../user.png';
 import getStorage from '../utilsComponents/utils_functions';
+import closeIcon from '../../src/close.svg';
 
 const history_items_list_style={
 
@@ -11,7 +12,7 @@ const history_items_list_style={
         display : "flex",
         justifyContent : "center",
         background:"white",
-        zIndex : 20,
+        zIndex : 10,
         transition : "0.1s ease-out"
 }
 
@@ -22,11 +23,14 @@ class Profile extends Component {
             //properties are described by element className
             profile_block_width:0,
             profile_block_active : false,
+            profile_block_zIndex : 5,
             profile_icon_block_position : "absolute",
             profile_icon_block_top : "30%",
             profile_icon_block_left : "5%",
             submit_button_display : "none",
-            avatar : profile_image
+            chooseAvatarOptionDisplay : "none",
+            avatar : profile_image,
+            
        }
     }
 
@@ -46,28 +50,35 @@ class Profile extends Component {
 
     }
    
-     profile_block_active = async()=> {
-        await this.setState({ profile_block_active : !this.state.profile_block_active });
+     profile_block_active = ()=> {
         
-        if(this.state.profile_block_active){
-
-            this.setState({ profile_block_width : "100vw" })
+            this.setState({ chooseAvatarOptionDisplay : "block" });
+            this.setState({ profile_block_width : "100vw" });
+            this.setState({ profile_block_zIndex : 20 });
             this.setState({ profile_icon_block_position : "fixed" });
             this.setState({ profile_icon_block_top:"5%" })
             this.setState({ profile_icon_block_left : "40%"} )
-        }
-
-        else{
-            this.setState({ profile_icon_block_left : "7%"})
-            this.setState({ profile_icon_block_top:"30%"})
-            this.setState({ profile_block_width : 0 } );
-            this.setState({ profile_icon_block_position : "absolute"} );
-        }
     }
 
+    profile_block_closed = () =>{
+
+
+        this.setState({ submit_button_display : "none" });
+
+        this.setState({ profile_block_zIndex : 5 });
+
+        this.setState({ chooseAvatarOptionDisplay : "none" });
+        this.setState({ profile_icon_block_left : "7%"})
+        this.setState({ profile_icon_block_top:"30%"})
+        this.setState({ profile_block_width : 0 } );
+        this.setState({ profile_icon_block_position : "absolute"} );
+    }
+    
     submit_active = ()=>{
 
-        setTimeout(() => this.setState({ submit_button_display : "block"  }), 1000);
+
+            setTimeout(() => this.setState({ submit_button_display : "block"  }), 1000);
+        
     }
 
     load_avatar =  (e)=>{
@@ -95,14 +106,15 @@ class Profile extends Component {
     render() {
         return (
             <React.Fragment>
-                <form onSubmit = { this.load_avatar } className='profile-block' style={{ position: this.state.profile_icon_block_position, top: this.state.profile_icon_block_top, left: this.state.profile_icon_block_left }} encType='multipart/form-data'>
-                    <img  src={ this.state.avatar } onClick={ this.profile_block_active } alt="avatar" />
-                    <label htmlFor="file-upload">choose</label>
-                    <input type="file"  name='avatar' id='file-upload'  onClick ={ this.submit_active } accept="image/*"/>
+                <form onSubmit = { this.load_avatar } className='profile-block' style={{ position: this.state.profile_icon_block_position, top: this.state.profile_icon_block_top, left: this.state.profile_icon_block_left, zIndex : this.state.profile_block_zIndex }} encType='multipart/form-data'>
+                    <img  src= { this.state.avatar } onClick= { this.profile_block_active } alt="avatar" />
+                    <label style={{ display: this.state.chooseAvatarOptionDisplay }}   htmlFor="file-upload">choose</label>
+                    <input style={{ display: this.state.chooseAvatarOptionDisplay }} type="file"  name='avatar' id='file-upload'  onClick ={ this.submit_active } accept="image/*"/>
                     <input type="submit" value='validate' style={{ display : this.state.submit_button_display }}/>
                 </form>
 
                 <div className='history-items-list' style={{ ...history_items_list_style, width: this.state.profile_block_width }}>
+                    <img className= "close-icon" src={closeIcon} alt="close-icon" onClick={ this.profile_block_closed } />
                     <MyFavorites/>
                     <Deleted_Items_From_Bookmarks/>
                 </div>
