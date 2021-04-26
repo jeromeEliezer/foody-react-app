@@ -40,14 +40,16 @@ class Home extends Component{
                         
     render(){
         return(
-                <div className = "Home-wrapper">
-                    <div className = "upper-content-main-wrapper">
-                        <Header entry ={ this.setFetch } fetchEntry={ this.fetchEntry } menuBurgerBg= { this.state.menuBugerBgcolor } />
-                        <HomeContent/>
+               
+                    <div className = "Home-wrapper">
+                        <div className = "upper-content-main-wrapper">
+                            <Header entry ={ this.setFetch } fetchEntry={ this.fetchEntry } menuBurgerBg= { this.state.menuBugerBgcolor } />
+                            <HomeContent/>
+                        </div>
+                        <PostFetch entry ={ this.state.valueTofetch } redirect= {this.props.history} checkRequest ={ this.state.req }/>
+                        <Footer/>
                     </div>
-                    <PostFetch entry ={ this.state.valueTofetch } redirect= {this.props.history} checkRequest ={ this.state.req }/>
-                    <Footer/>
-                </div>
+                
             )
     }
 }

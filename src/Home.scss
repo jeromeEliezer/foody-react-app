@@ -13,13 +13,36 @@ html{
 body{
     margin:0;
     padding:0;
-    p, p span, h2,a{
+    p, p a, h2,a{
         font-family: 'Arimo';
+    }
+    a{
+        text-decoration: none;
+        color:white;
     }
 }
 
 *{
     box-sizing:border-box
+}
+
+//p error msg in PostFetch.jsx
+p.fetch-error-message{
+    position: absolute;
+    color:  white;
+    font-size: 1.5rem;
+    background-color: orange;
+    top : 25%;
+    left : 50%;
+    transform: translate(-50%,-50%);
+    border-radius : 8px;
+    text-align: center;
+    width : 150px;
+    z-index:50;
+    // height : 0;
+    overflow: hidden;
+    transition : .5s;
+    box-shadow: 0 0 20px black;
 }
 
 .Home-wrapper{
@@ -535,6 +558,10 @@ i{
 }
 
 @media screen and (min-width: 1024px){
+
+    .history-items-list{
+        padding-top : 30% !important;
+    }
 
     h1{
         top : 2.6% !important;

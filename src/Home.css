@@ -17,13 +17,38 @@ body {
   padding: 0;
 }
 
-body p, body p span, body h2, body a {
+body p, body p a, body h2, body a {
   font-family: 'Arimo';
+}
+
+body a {
+  text-decoration: none;
+  color: white;
 }
 
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+p.fetch-error-message {
+  position: absolute;
+  color: white;
+  font-size: 1.5rem;
+  background-color: orange;
+  top: 25%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 8px;
+  text-align: center;
+  width: 150px;
+  z-index: 50;
+  overflow: hidden;
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-box-shadow: 0 0 20px black;
+          box-shadow: 0 0 20px black;
 }
 
 .Home-wrapper {
@@ -614,6 +639,9 @@ i {
 }
 
 @media screen and (min-width: 1024px) {
+  .history-items-list {
+    padding-top: 30% !important;
+  }
   h1 {
     top: 2.6% !important;
   }

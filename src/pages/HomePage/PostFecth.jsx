@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import React, { Component } from 'react';
 import optionsIcon from '../../options.svg';
@@ -6,14 +5,14 @@ import star from '../../star.svg';
 
 class PostFetch extends Component{
     constructor(props){
-
         super(props);
         
         this.state = {
             items : [],
             position : "static",
             displayOptions : "none",
-            areOptionsDisplayed : false
+            areOptionsDisplayed : false,
+            errorMessageHeight : 0
         }
         this.mealNameStyle = {
             position : "absolute",
@@ -26,11 +25,9 @@ class PostFetch extends Component{
             width : "40%",
             borderRadius : "8px"
         }; 
-
     }
 
     async componentDidUpdate(prevProps, prevState){
-
 
         if(this.props.checkRequest !== prevProps.checkRequest){
 
@@ -42,6 +39,7 @@ class PostFetch extends Component{
          }
     }
 
+    //search engine
     fetch = async ()=>{
         let items = [];
         let resSingleMeal = null;
@@ -63,6 +61,15 @@ class PostFetch extends Component{
                 items = items.reduce((a,b)=> a.concat(b),[])
                 await this.setState({items});
                 this.check = false;
+
+                //check if match found
+                const NoMatch = items.every(el => el === null)
+                
+                if(NoMatch){
+                    this.setState({ errorMessageHeight: "20px" });
+                    setTimeout(()=>this.setState({ errorMessageHeight: 0 }), 4000);
+                }
+                    
              }
             catch(err){console.log(err)}
          }
@@ -134,38 +141,46 @@ class PostFetch extends Component{
                 /// if we found a match so result are shown...
                 case this.state.items.length !== 0 : 
                                             return(
-                                                <div className="fetch-response-container">
-                                                    { this.state.items.map(el=>{
-                                                        return (
-                                                            
-                                                            // each block
-                                                            <div key={ el.idMeal } className='fetch-result-wrapper'>
+                                                    <div className="fetch-response-container">
+                                                        { this.state.items.map(el=>{
+                                                            return (
 
-                                                                <p className= "error-message">Already in your favorites</p>
+                                                                // each block
+                                                                <div key={ el.idMeal } className='fetch-result-wrapper'>
 
-                                                                {/* imge option to click ON */}
-                                                                <img style={{cursor: "pointer"}}className="options-icon" src={ optionsIcon } onClick = { this.handleOptions } alt="options-icon"/>
-                                                                {/* options (addTobookmarks | show details*/}
-                                                                <div style= {{display : "none"}} className ='options-params'>
-                                                                    <h5 data-id={el.idMeal} data-img ={el.strMealThumb} data-name={el.strMeal} onClick ={this.addToBookmarks}>Add to favorites</h5>
-                                                                    <h5 data-id={el.idMeal} data-img ={el.strMealThumb} data-name={el.strMeal} onClick={this.showDetails}>Show details</h5>
+                                                                    <p className= "error-message">Already in your favorites</p>
+
+                                                                    {/* imge option to click ON */}
+                                                                    <img style={{cursor: "pointer"}}className="options-icon" src={ optionsIcon } onClick = { this.handleOptions } alt="options-icon"/>
+                                                                    {/* options (addTobookmarks | show details*/}
+                                                                    <div style= {{display : "none"}} className ='options-params'>
+                                                                        <h5 data-id={el.idMeal} data-img ={el.strMealThumb} data-name={el.strMeal} onClick ={this.addToBookmarks}>Add to favorites</h5>
+                                                                        <h5 data-id={el.idMeal} data-img ={el.strMealThumb} data-name={el.strMeal} onClick={this.showDetails}>Show details</h5>
+                                                                    </div>
+                                                                    {/* main image */}
+                                                                    <img  className="fetch-image"   src={ el.strMealThumb } alt=""/>
+                                                                    {/* star appear if meal is added to favorites */}
+                                                                    <img className='favorite' style={ { display:"none" } } src={ star } alt="favorite-icon"/>
+                                                                    
+                                                                    <h3 style={this.mealNameStyle}>{el.strMeal}</h3>
                                                                 </div>
-                                                                {/* main image */}
-                                                                <img  className="fetch-image"   src={ el.strMealThumb } alt=""/>
-                                                                {/* star appear if meal is added to favorites */}
-                                                                <img className='favorite' style={ { display:"none" } } src={ star } alt="favorite-icon"/>
-                                                                
-                                                                <h3 style={this.mealNameStyle}>{el.strMeal}</h3>
-                                                            </div>
-                                                        )
-                                                    })}
-                                               </div>)
+                                                            )
+                                                        })}
+                                                    </div>
+                                                    )
                 
                 ///
                 default : 
-                        return <i></i>
+                        return (
+                            <React.Fragment>
+                                <p className= "fetch-error-message" style={{ height : this.state.errorMessageHeight }}>No match found</p>
+                                <i></i> 
+                            </React.Fragment>
+                            )
+                                
 
-            }                           
+            }
+                                       
             
              
         }
