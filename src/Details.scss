@@ -10,7 +10,21 @@
     justify-content:$justify-content;
 }
 
-
+.displayVideoInfo{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:aliceblue;
+    font-family: 'Arimo';
+    height:460px ;
+    width: 100%;
+    margin-top:100px ;
+    border: 1px solid white;
+    h2{
+        text-align: center;
+    }
+    
+}
 
 .details-wrapper{
 background:black;

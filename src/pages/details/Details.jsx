@@ -30,6 +30,12 @@ class Details extends Component {
         });  
     }
 
+    displayVideo = (arg)=>{
+        if(arg !== ""){
+            return<iframe src = {arg} width={this.state.width} frameBorder="0" height={this.state.height} allowFullScreen="true" ></iframe>   
+        }
+        return<div className="displayVideoInfo"><h2 >no video available</h2></div>
+    } 
    async loadContent(){
     const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${this.props.match.params.id}`)
     console.log(response)
@@ -52,7 +58,7 @@ render() {
                 <a href="/">
                     <img alt ="previous" className='previous-icon' src={previous} />
                 </a>
-                <iframe src = {this.state.lien} width={this.state.width} frameBorder="0" height={this.state.height} allowFullScreen="true" ></iframe>
+                {this.displayVideo(this.state.lien)}
                 <figure className='details' >
                 <img  alt ="mealimage" src={this.state.image} className='imageDetails'/>
                     <figcaption className = "figCaption">
