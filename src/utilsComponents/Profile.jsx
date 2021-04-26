@@ -39,7 +39,6 @@ class Profile extends Component {
         if(localStorage.getItem('avatar') !== null){
             
             const avatar = localStorage.getItem('avatar');
-            console.log(avatar)
             await this.setState({ avatar : avatar });
             return
           }
@@ -156,7 +155,7 @@ class MyFavorites extends Component{
                 <p>You have { this.state.items_number } favorite(s)</p>
                     <ul className='history'>
                         { this.state.items.map(el => (
-                            <a href={`/details/${ el.id }`}>
+                            <a key={el.id}href={`/details/${ el.id }`}>
                                 <li>{ el.name }</li>
                             </a>    
                         ))}
@@ -197,7 +196,7 @@ class Deleted_Items_From_Bookmarks extends Component{
                 <p>You deleted { this.state.number } item(s)</p>
                     <ul className='history'>
                         {this.state.deleted_items.map(el =>(
-                            <a href={ `/details/${el.id}` }>
+                            <a key={el.id} href={ `/details/${el.id}`}>
                                 <li>{ el.name }</li>
                             </a>
                         ))}
