@@ -120,7 +120,7 @@ function display (arr, showDetails, removeFavorite){
         return (arr.map(el => (
         <figure className="image-content">    
             <img className="image" src={el.img} alt=""/>
-            <figcaption>
+            <figcaption className="text-content">
                 <h2>{el.name}</h2>
             </figcaption>
             <div className="buttonAddRemove">
@@ -131,7 +131,7 @@ function display (arr, showDetails, removeFavorite){
         )))}
         else{
             // console.log("Match")
-            return <h3 style={{color:"white", fontSize:"2rem"}}>You don't have any favorites...</h3>
+            return <div class="alertMessage"><h3 style={{color:"white", fontSize:"2rem"}}>You don't have any favorites...</h3></div>
             
         }
 

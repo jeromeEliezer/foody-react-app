@@ -16,7 +16,7 @@
   align-items: center;
   background: black;
   padding-top: 25%;
-  height: 100vh;
+  // height: 100vh;
   overflow-y: scroll;
   
   .image-content{
@@ -64,6 +64,15 @@
   }
 }
 
+.alertMessage {
+  height: 76vh;
+  border-bottom: 1px solid white;
+  width: 98.3vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 // Small Tablet screen
 @media screen and (min-width: 768px){
   .bookmarks-content {
@@ -110,16 +119,34 @@
   }    
 }
 
+@media screen and (min-width: 900px) {
+  figcaption.text-content {
+    top: 0 !important;
+    left: 10% !important;
+  }
+}
 // Large screen
 @media screen and (min-width: 1024px) {
-  
-    .prev-icon {
-      padding-top: 10%;
-    }
 
-    button {
-      width: 60px;
-      
-    }
+  figcaption {
+    height: 5%;
+  }
+
+  footer {
+    margin-top: 0;
+  
+  }
+
+.prev-icon {
+  padding-top: 10%;
 }
+
+button {
+  width: 60px;
+  
+}
+}
+  
+   
+    
 
