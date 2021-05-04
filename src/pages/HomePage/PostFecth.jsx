@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import optionsIcon from '../../options.svg';
-import star from '../../star.svg';
+import optionsIcon from '../../assets/images/options.svg';
+import star from '../../assets/images/star.svg';
 
 class PostFetch extends Component{
     constructor(props){
