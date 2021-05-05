@@ -46,20 +46,20 @@ En tant que visiteur du site je veux pouvoir :
 - Mobile
     - home
 
-![](src/mobile-layout.png)
+![](screenShots/mobile-home.png)
 
     - favoris
 
-![](src/mobile-layout-favoris.png)
+![](screenShots/mobile-bookmarks.png)
 
 - Tablette
     - home
 
-![](screenShots/Tablette-layout-home.png)
+![](screenShots/Tablet-home.png)
 
     - favoris
 
-![](screenShots/Tablette-layout-bookmarks.png)
+![](screenShots/Tablet-bookmarks.png)
 
     - details
 
@@ -69,15 +69,15 @@ En tant que visiteur du site je veux pouvoir :
 - Desktop
     - home
 
-![](src/Desktop-layout-home.png)
+![](screenShots/Desktop-layout-home.png)
 
     - favoris
 
-![](src/Desktop-layout-favoris.png)
+![](screenShots/Desktop-layout-favoris.png)
 
     - details
 
-![](src/Desktop-layout-details.png)
+![](screenShots/Desktop-layout-details.png)
 
 
 
