@@ -55,11 +55,11 @@ En tant que visiteur du site je veux pouvoir :
 - Tablette
     - home
 
-![](src/Tablet-layout-home.png)
+![](/Tablette-layout-home.png)
 
     - favoris
 
-![](src/Tablet-layout-favoris.png)
+![](/Tablette-layout-bookmarks.png)
 
     - details
 
