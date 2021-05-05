@@ -55,15 +55,15 @@ En tant que visiteur du site je veux pouvoir :
 - Tablette
     - home
 
-![](src/Tablet-layout-home.png)
+![](screenShots/Tablette-layout-home.png)
 
     - favoris
 
-![](src/Tablet-layout-favoris.png)
+![](screenShots/Tablette-layout-bookmarks.png)
 
     - details
 
-![](src/Tablet-layout-details.png)
+![](screenShots/Tablet-layout-details.png)
 
 
 - Desktop
