@@ -46,11 +46,11 @@ En tant que visiteur du site je veux pouvoir :
 - Mobile
     - home
 
-![](screenShots/mobile-home.png)
+![](screenShots/Mobile-home.png)
 
     - favoris
 
-![](screenShots/mobile-bookmarks.png)
+![](screenShots/Mobile-bookmarks.png)
 
 - Tablette
     - home
