@@ -1,6 +1,6 @@
 # Foody-React-App
 
-Une application ReactJS pour les passionnées de cuisine nous permet de lister/filtrer les recettes de cusine en récupérant les informations d'une API (https://www.themealdb.com/api.php). C'est un projet de groupe dans le cadre de la formation à Simplon. 
+Une application ReactJS pour les passionnées de cuisine nous permet de lister/filtrer les recettes de cusine en récupérant les informations d'une API (https://www.themealdb.com/api.php).
 
 <p align="center">
     <img src="https://img.shields.io/github/repo-size/Puthpiseth/foody-react-app" />
