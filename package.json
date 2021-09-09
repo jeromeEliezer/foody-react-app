@@ -2,7 +2,7 @@
   "name": "foody-react-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://puthpiseth.github.io/foody-react-app",
+  "homepage": "https://Puthpiseth.github.io/foody-react-app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
