@@ -28,7 +28,6 @@ class Details extends Component {
 
     displayVideo = (arg)=>{
         if(arg !== ""){
-
             return<iframe src = { arg } width={this.state.width} frameBorder="0" height={ this.state.height } allowFullScreen={true} title = 'recipe video'></iframe>   
         }
         return<div className="displayVideoInfo"><h2 >no video available</h2></div>
@@ -38,8 +37,8 @@ class Details extends Component {
         const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${ this.props.match.params.id }`)
         const detailsId = response.data.meals[0];
         const { strMealThumb,strInstructions,strMeal } = detailsId;
-        let lien = detailsId.strYoutube
-        lien = lien.replace(/watch\?v=/g,"embed/")
+        let lien = detailsId.strYoutube;
+        lien = lien.replace(/watch\?v=/g,"embed/");
         await this.setState({ lien,image:strMealThumb,text:strInstructions, title:strMeal });
     }
 

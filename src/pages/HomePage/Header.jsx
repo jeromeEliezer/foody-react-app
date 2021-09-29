@@ -20,7 +20,6 @@ import headerBackground12 from '../../assets/images/headerBackground12.jpg';
 class Header extends Component {
     constructor( props ){
         super( props );
-
         this.state = { 
             image : headerBackground12,
         }

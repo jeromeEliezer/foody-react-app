@@ -26,10 +26,6 @@ class Bookmarks extends Component {
     }
     componentDidMount(){
         this.uploadBookmarks();
-    
-    }
-    componentWillUnmount(){
-
     }
     showDetails = (e) =>{
         const id = e.target.getAttribute('data-id');
@@ -87,10 +83,7 @@ class Bookmarks extends Component {
                 </figure>                   
             )))
         }
-    
-        else{
-            return <div className="alertMessage"><h3 style={{color:"white", fontSize:"2rem"}}>You don't have any favorites...</h3></div>
-        }
+        return <div className="alertMessage"><h3 style={{color:"white", fontSize:"2rem"}}>You don't have any favorites...</h3></div>
     }
 
     render() {

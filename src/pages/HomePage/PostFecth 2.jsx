@@ -6,7 +6,6 @@ import star from '../../star.svg';
 class PostFetch extends Component{
     constructor(props){
         super(props);
-        
         this.state = {
             items : [],
             position : "static",
@@ -30,15 +29,12 @@ class PostFetch extends Component{
     async componentDidUpdate(prevProps, prevState){
 
         if(this.props.checkRequest !== prevProps.checkRequest){
-
             await this.fetch();
-
             if(this.state.items !== [] && document.querySelector('.fetch-response-container')){
                 document.querySelector('.fetch-response-container').scrollIntoView({behavior:'smooth'});
             }
          }
     }
-
     //search engine
     fetch = async ()=>{
         let items = [];
@@ -48,7 +44,7 @@ class PostFetch extends Component{
         let resArea = null
 
         if(this.props.entry){
-             try{
+            try{
                 resSingleMeal     = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${this.props.entry}`);
                 resCategory       = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${this.props.entry}`);
                 resMainIngredient = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${this.props.entry}`);
@@ -58,17 +54,16 @@ class PostFetch extends Component{
                 items.push(resMainIngredient.data.meals);
                 items.push(resArea.data.meals);
                 items = items.filter(el => el !== null);
-                items = items.reduce((a,b)=> a.concat(b),[])
+                items = items.reduce((a,b)=> a.concat(b),[]);
                 await this.setState({items});
                 this.check = false;
                 //check if match found
-                const NoMatch = items.every(el => el === null)
+                const NoMatch = items.every(el => el === null);
                 if(NoMatch){
                     this.setState({ errorMessageHeight: "20px" });
                     setTimeout(()=>this.setState({ errorMessageHeight: 0 }), 4000);
                 }
-                    
-             }
+            }
             catch(err){console.log(err)}
          }
     }
@@ -92,8 +87,6 @@ class PostFetch extends Component{
         let weCanAddThisOne = true;
          //useful if we need to add element in localStorage ...if localStorage don't exist yet it's created
         const favList = [];
-        
-
         //if localStorage exists we need to load it's content and increment it with the selected element
         if(localStorage.getItem('bookmarks') !== null && localStorage.getItem('bookmarks') !== ""){
             const bookmarks = localStorage.getItem('bookmarks');
@@ -113,19 +106,16 @@ class PostFetch extends Component{
             localStorage.setItem('bookmarks',favList);
             e.target.parentElement.nextSibling.nextSibling.style.display = "block";
         }
-
         else{
             errBox.style.height = "25px";
             setTimeout(() => errBox.style.height = 0, 3000)
         }
     }
-
     ///show detail button event
     showDetails = (e) =>{
         const id = e.target.getAttribute('data-id');
         this.props.redirect.push(`/details/${id}`);
     }
-
     render(){
             switch( true ){
                 /// if we found a match so result are shown...

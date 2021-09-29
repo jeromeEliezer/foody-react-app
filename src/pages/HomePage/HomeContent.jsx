@@ -5,7 +5,7 @@ class HomeContent extends Component {
     constructor(){
         super();
         this.state = { 
-                randomMeal : {},
+            randomMeal : {},
         }
         this.loadContent();
     }
