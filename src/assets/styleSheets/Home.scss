@@ -460,10 +460,10 @@ i{
         }
     }
     // each link in nav
-        &:hover::before{
-            border : 10px solid transparent;
-            border-top : 11px solid white;
-        }
+        // &:hover::before{
+        //     border : 10px solid transparent;
+        //     border-top : 11px solid white;
+        // }
     //form qui contient la barre de recherche
     .searchFields{
         width : 50%;
